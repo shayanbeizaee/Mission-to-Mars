@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <h2>Latest Mars News</h2>
+    <p> {{ vacation.title }} </p> 
+    <p> {{ vacation.paragraph }} </p>
+    <h2>Featured Mars Image</h2>
+    <img src="{{ vacation.featured_image_url }}" alt="Featured_Mars">
+    <h4>Current Wather on Mars</h4>
+    <p> {{ vacation.mars_weather }}</p>
+    <h4>Mars Facts</h4>
+    <p> {{ vacation.mars_html|safe }} </p>
+    <h3>Mars Hemispheres</h3>
+    {% for x in vacation.hemisphere_image_urls %}
+        <p> {{ x.title }} </p>
+        <img src="{{ x.image_url }}" width = "150" height = "150" alt="Mars Hemisphere">    
+     {% endfor %}   
+  </div>
+  </div>
+</body>
+
+</html>
